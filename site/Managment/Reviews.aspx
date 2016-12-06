@@ -33,9 +33,6 @@
             <%--<asp:BoundField DataField="Body" HeaderText="Body" SortExpression="Body" />--%>
             <%--<asp:BoundField DataField="GenreId" HeaderText="GenreId" SortExpression="GenreId" />--%>
             <asp:TemplateField HeaderText="Authorized" SortExpression="Authorized">
-<%--                <EditItemTemplate>
-                    <asp:CheckBox ID="CheckBox1" runat="server" Checked='<%# Bind("Authorized") %>' />
-                </EditItemTemplate>--%>
                 <ItemTemplate>
                     <asp:Label ID="AuthorizedLabel" runat="server" Text='<%# GetBooleanText(Eval("Authorized")) %>'/> <!-- Eval: one way data binding expreeson & can pass more then one arguments to Code behind-->
                 </ItemTemplate>
