@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Naga\OneDrive\Projects\Wrox_ASPDotNet4\BegASPNET\App_Code\PlanetWrox.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\noelk\Documents\GitHub\myTestRepos\Push_3\site\App_Code\PlanetWrox.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
