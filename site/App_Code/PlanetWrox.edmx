@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PlanetWroxModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="PlanetWroxModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Genre">
           <Key>
             <PropertyRef Name="Id" />
@@ -12,6 +12,23 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="SortOrder" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PhotoAlbum">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Picture">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="ToolTip" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ImageUrl" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="PhotoAlbumId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Review">
           <Key>
@@ -38,16 +55,33 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="int">
+          <End Role="PhotoAlbum" Type="Self.PhotoAlbum" Multiplicity="1" />
+          <End Role="Picture" Type="Self.Picture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhotoAlbum">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Picture">
+              <PropertyRef Name="PhotoAlbumId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="PlanetWroxModelStoreContainer">
           <EntitySet Name="Genre" EntityType="Self.Genre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhotoAlbum" EntityType="Self.PhotoAlbum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Picture" EntityType="Self.Picture" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Review" EntityType="Self.Review" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Review_Genre" Association="Self.FK_Review_Genre">
             <End Role="Genre" EntitySet="Genre" />
             <End Role="Review" EntitySet="Review" />
           </AssociationSet>
+          <AssociationSet Name="int" Association="Self.int">
+            <End Role="PhotoAlbum" EntitySet="PhotoAlbum" />
+            <End Role="Picture" EntitySet="Picture" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PlanetWroxModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -93,7 +127,44 @@
             <End Role="Genre" EntitySet="Genre" />
             <End Role="Review" EntitySet="Reviews" />
           </AssociationSet>
+          <EntitySet Name="PhotoAlbums" EntityType="PlanetWroxModel.PhotoAlbum" />
+          <EntitySet Name="Pictures" EntityType="PlanetWroxModel.Pictures" />
+          <AssociationSet Name="int" Association="PlanetWroxModel.int">
+            <End Role="PhotoAlbum" EntitySet="PhotoAlbums" />
+            <End Role="Picture" EntitySet="Pictures" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="PhotoAlbum">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Pictures" Relationship="PlanetWroxModel.int" FromRole="PhotoAlbum" ToRole="Picture" />
+        </EntityType>
+        <EntityType Name="Pictures">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="ToolTip" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ImageUrl" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PhotoAlbumId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PhotoAlbum" Relationship="PlanetWroxModel.int" FromRole="Picture" ToRole="PhotoAlbum" />
+        </EntityType>
+        <Association Name="int">
+          <End Type="PlanetWroxModel.PhotoAlbum" Role="PhotoAlbum" Multiplicity="1" />
+          <End Type="PlanetWroxModel.Pictures" Role="Picture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhotoAlbum">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Picture">
+              <PropertyRef Name="PhotoAlbumId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -123,6 +194,25 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="PhotoAlbums">
+            <EntityTypeMapping TypeName="PlanetWroxModel.PhotoAlbum">
+              <MappingFragment StoreEntitySet="PhotoAlbum">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pictures">
+            <EntityTypeMapping TypeName="PlanetWroxModel.Pictures">
+              <MappingFragment StoreEntitySet="Picture">
+                <ScalarProperty Name="PhotoAlbumId" ColumnName="PhotoAlbumId" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="ToolTip" ColumnName="ToolTip" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -137,7 +227,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

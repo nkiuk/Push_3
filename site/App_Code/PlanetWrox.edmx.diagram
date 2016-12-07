@@ -5,9 +5,12 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="23d96f251e3141b9a715b8e37b0a58bf" Name="Diagram1">
-        <EntityTypeShape EntityType="PlanetWroxModel.Genres" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PlanetWroxModel.Reviews" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlanetWroxModel.Genres" Width="1.5" PointX="0.625" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlanetWroxModel.Reviews" Width="1.5" PointX="2.75" PointY="0.5" IsExpanded="true" />
         <AssociationConnector Association="PlanetWroxModel.FK_Review_Genre" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PlanetWroxModel.PhotoAlbum" Width="1.5" PointX="0.75" PointY="5.25" />
+        <EntityTypeShape EntityType="PlanetWroxModel.Pictures" Width="1.5" PointX="3" PointY="4.875" />
+        <AssociationConnector Association="PlanetWroxModel.int" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

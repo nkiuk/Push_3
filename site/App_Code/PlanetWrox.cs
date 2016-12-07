@@ -26,6 +26,32 @@ public partial class Genres
     public virtual ICollection<Reviews> Reviews { get; set; }
 }
 
+public partial class PhotoAlbum
+{
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+    public PhotoAlbum()
+    {
+        this.Pictures = new HashSet<Pictures>();
+    }
+
+    public int Id { get; set; }
+    public string Name { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+    public virtual ICollection<Pictures> Pictures { get; set; }
+}
+
+public partial class Pictures
+{
+    public int Id { get; set; }
+    public string Description { get; set; }
+    public string ToolTip { get; set; }
+    public string ImageUrl { get; set; }
+    public int PhotoAlbumId { get; set; }
+
+    public virtual PhotoAlbum PhotoAlbum { get; set; }
+}
+
 public partial class Reviews
 {
     public int Id { get; set; }

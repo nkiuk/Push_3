@@ -25,4 +25,6 @@ public partial class PlanetWroxEntities : DbContext
 
     public virtual DbSet<Genres> Genre { get; set; }
     public virtual DbSet<Reviews> Reviews { get; set; }
+    public virtual DbSet<PhotoAlbum> PhotoAlbums { get; set; }
+    public virtual DbSet<Pictures> Pictures { get; set; }
 }
