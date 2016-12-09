@@ -8,8 +8,8 @@
         <EntityTypeShape EntityType="PlanetWroxModel.Genres" Width="1.5" PointX="0.625" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PlanetWroxModel.Reviews" Width="1.5" PointX="2.75" PointY="0.5" IsExpanded="true" />
         <AssociationConnector Association="PlanetWroxModel.FK_Review_Genre" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="PlanetWroxModel.PhotoAlbum" Width="1.5" PointX="0.75" PointY="5.25" />
-        <EntityTypeShape EntityType="PlanetWroxModel.Pictures" Width="1.5" PointX="3" PointY="4.875" />
+        <EntityTypeShape EntityType="PlanetWroxModel.PhotoAlbum" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PlanetWroxModel.Pictures" Width="1.5" PointX="7" PointY="0.875" />
         <AssociationConnector Association="PlanetWroxModel.int" />
       </Diagram>
     </edmx:Diagrams>
