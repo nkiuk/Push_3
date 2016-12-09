@@ -3,24 +3,21 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cpMainContent" Runat="Server">
-    <asp:DetailsView ID="DetailsView1" runat="server" 
+     <asp:DetailsView 
+        ID="DetailsView1"
+        runat="server" 
+        AutoGenerate="False"
+        DataKeyNames="Id"
         DataSourceID="EntityDataSource1"
         DefaultMode="Insert" 
         Height="50px" 
-        Width="125px">
+        Width="125px" AutoGenerateRows="False">
         <Fields>
-            <asp:BoundField DataField="Id" HeaderText="Id" ReadOnly="true" SortExpression="Id" InsertVisible="false" />
+            <asp:BoundField DataField="Id" HeaderText="Id" ReadOnly="true" SortExpression="Id" />
             <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
-            <asp:CommandField ShowInsertButton="true" />
         </Fields>
     </asp:DetailsView>
-    <asp:EntityDataSource ID="EntityDataSource1" runat="server" 
-        ConnectionString="name=PlanetWroxEntites" 
-        DefaultContainerName="PlanetWroxEntites" 
-        EnableFlattening="false" 
-        EnableInsert="true" 
-        EntitySetName="PhotoAlbums" 
-        OnInserted="EntityDataSource1_Inserted">
+    <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=PlanetWroxEntities" DefaultContainerName="PlanetWroxEntities" EnableFlattening="False" EntitySetName="PhotoAlbums">
     </asp:EntityDataSource>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cpClientScript" Runat="Server">

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
-  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="23d96f251e3141b9a715b8e37b0a58bf" Name="Diagram1">
-        <EntityTypeShape EntityType="PlanetWroxModel.Genres" Width="1.5" PointX="0.625" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PlanetWroxModel.Reviews" Width="1.5" PointX="2.75" PointY="0.5" IsExpanded="true" />
+      <Diagram DiagramId="f288105989474a6ab23ac1eef59806d3" Name="Diagram1">
+        <EntityTypeShape EntityType="PlanetWroxModel.Genre" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlanetWroxModel.PhotoAlbum" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlanetWroxModel.Picture" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlanetWroxModel.Review" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="PlanetWroxModel.FK_Review_Genre" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="PlanetWroxModel.PhotoAlbum" Width="1.5" PointX="4.75" PointY="0.75" />
-        <EntityTypeShape EntityType="PlanetWroxModel.Pictures" Width="1.5" PointX="7" PointY="0.875" />
-        <AssociationConnector Association="PlanetWroxModel.int" />
+        <AssociationConnector Association="PlanetWroxModel.int" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
