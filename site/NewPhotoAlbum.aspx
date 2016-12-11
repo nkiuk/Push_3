@@ -6,18 +6,27 @@
      <asp:DetailsView 
         ID="DetailsView1"
         runat="server" 
-        AutoGenerate="False"
+        AutoGenerateRows="False"
         DataKeyNames="Id"
         DataSourceID="EntityDataSource1"
         DefaultMode="Insert" 
         Height="50px" 
-        Width="125px" AutoGenerateRows="False">
+        Width="125px">
         <Fields>
-            <asp:BoundField DataField="Id" HeaderText="Id" ReadOnly="true" SortExpression="Id" />
-            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+            <asp:BoundField DataField="Id" HeaderText="Id" ReadOnly="true" SortExpression="Id" InsertVisible="false"  />
+            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name"/>
+            <asp:CommandField ShowInsertButton="true"/>
         </Fields>
     </asp:DetailsView>
-    <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=PlanetWroxEntities" DefaultContainerName="PlanetWroxEntities" EnableFlattening="False" EntitySetName="PhotoAlbums">
+    <asp:EntityDataSource 
+        ID="EntityDataSource1" 
+        runat="server" 
+        ConnectionString="name=PlanetWroxEntities" 
+        DefaultContainerName="PlanetWroxEntities" 
+        EnableFlattening="False" 
+        EntitySetName="PhotoAlbums" 
+        OnInserted="EntityDataSource1_Inserted" 
+        EnableInsert="True">
     </asp:EntityDataSource>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cpClientScript" Runat="Server">

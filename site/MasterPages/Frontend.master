@@ -1,5 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Frontend.master.cs" Inherits="MasterPages_Frontend" %>
-
+<link href="../Styles/Styles.css" rel="stylesheet" />
 <%--<%@ Register src="~/Controls/Banner.ascx" tagname="Banner" tagprefix="uc1" %>--%> <%--Is not used when its globaly configured in web.config--%>
 
 <!DOCTYPE html>

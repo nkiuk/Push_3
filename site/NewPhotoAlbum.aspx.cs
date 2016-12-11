@@ -17,7 +17,7 @@ public partial class NewPhotoAlbum : BasePage
 
     protected void EntityDataSource1_Inserted(object sender, EntityDataSourceChangedEventArgs e)
     {
-        /*PhotoAlbum myPhotoAlbum = (PhotoAlbum)e.Entity;
-        Response.Redirect(string.Format("ManagePhotoAlbum.aspx?PhotoAlbumId{0}", myPhotoAlbum.Id.ToString()));*/
+        PhotoAlbum myPhotoAlbum = (PhotoAlbum)e.Entity;
+        Response.Redirect(string.Format("ManagePhotoAlbum.aspx?PhotoAlbumId={0}", myPhotoAlbum.Id.ToString()));
     }
 }
