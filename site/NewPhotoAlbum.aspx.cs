@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-//using PlanetWroxModel;
+using PlanetWroxModel;
 
 
 
@@ -17,7 +17,13 @@ public partial class NewPhotoAlbum : BasePage
 
     protected void EntityDataSource1_Inserted(object sender, EntityDataSourceChangedEventArgs e)
     {
-        PhotoAlbum myPhotoAlbum = (PhotoAlbum)e.Entity;
+        //PhotoAlbum myPhotoAlbum = (PhotoAlbum)e.Entity;
+        PhotoAlbum myPhotoAlbum = new PhotoAlbum();
+        Convert.ReferenceEquals(myPhotoAlbum,e);
+        int newId = myPhotoAlbum.Id;
         Response.Redirect(string.Format("ManagePhotoAlbum.aspx?PhotoAlbumId={0}", myPhotoAlbum.Id.ToString()));
+      
+        
+        
     }
 }

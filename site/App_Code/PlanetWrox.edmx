@@ -153,7 +153,7 @@
         </Association>
         <EntityContainer Name="PlanetWroxEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Genres" EntityType="Self.Genre" />
-          <EntitySet Name="PhotoAlbums" EntityType="Self.PhotoAlbum" />
+          <EntitySet Name="PhotoAlbum" EntityType="Self.PhotoAlbum" />
           <EntitySet Name="Pictures" EntityType="Self.Picture" />
           <EntitySet Name="Reviews" EntityType="Self.Review" />
           <AssociationSet Name="FK_Review_Genre" Association="Self.FK_Review_Genre">
@@ -161,7 +161,7 @@
             <End Role="Review" EntitySet="Reviews" />
           </AssociationSet>
           <AssociationSet Name="int" Association="Self.int">
-            <End Role="PhotoAlbum" EntitySet="PhotoAlbums" />
+            <End Role="PhotoAlbum" EntitySet="PhotoAlbum" />
             <End Role="Picture" EntitySet="Pictures" />
           </AssociationSet>
         </EntityContainer>
@@ -180,7 +180,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="PhotoAlbums">
+          <EntitySetMapping Name="PhotoAlbum">
             <EntityTypeMapping TypeName="PlanetWroxModel.PhotoAlbum">
               <MappingFragment StoreEntitySet="PhotoAlbum">
                 <ScalarProperty Name="Id" ColumnName="Id" />

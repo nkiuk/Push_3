@@ -91,18 +91,18 @@ namespace PlanetWroxModel
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<PhotoAlbum> PhotoAlbums
+        public ObjectSet<PhotoAlbum> PhotoAlbum
         {
             get
             {
-                if ((_PhotoAlbums == null))
+                if ((_PhotoAlbum == null))
                 {
-                    _PhotoAlbums = base.CreateObjectSet<PhotoAlbum>("PhotoAlbums");
+                    _PhotoAlbum = base.CreateObjectSet<PhotoAlbum>("PhotoAlbum");
                 }
-                return _PhotoAlbums;
+                return _PhotoAlbum;
             }
         }
-        private ObjectSet<PhotoAlbum> _PhotoAlbums;
+        private ObjectSet<PhotoAlbum> _PhotoAlbum;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -149,11 +149,11 @@ namespace PlanetWroxModel
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the PhotoAlbums EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the PhotoAlbum EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToPhotoAlbums(PhotoAlbum photoAlbum)
+        public void AddToPhotoAlbum(PhotoAlbum photoAlbum)
         {
-            base.AddObject("PhotoAlbums", photoAlbum);
+            base.AddObject("PhotoAlbum", photoAlbum);
         }
     
         /// <summary>

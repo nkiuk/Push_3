@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using PlanetWroxModel;
+//using PlanetWroxModel;
 
 public partial class ManagePhotoAlbum : System.Web.UI.Page
 {
@@ -17,6 +17,6 @@ public partial class ManagePhotoAlbum : System.Web.UI.Page
     {
         int photoAlbumId = Convert.ToInt32(Request.QueryString.Get("PhotoAlbumId"));
         Picture myPicture = (Picture)e.Entity;
-        myPicture.Id = photoAlbumId;
+        myPicture.PhotoAlbumId = photoAlbumId;
     }
 }

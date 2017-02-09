@@ -24,7 +24,7 @@
         ConnectionString="name=PlanetWroxEntities" 
         DefaultContainerName="PlanetWroxEntities" 
         EnableFlattening="False" 
-        EntitySetName="PhotoAlbums" 
+        EntitySetName="PhotoAlbum" 
         OnInserted="EntityDataSource1_Inserted" 
         EnableInsert="True">
     </asp:EntityDataSource>

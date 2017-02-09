@@ -6,8 +6,8 @@
     <edmx:Diagrams>
       <Diagram DiagramId="f288105989474a6ab23ac1eef59806d3" Name="Diagram1">
         <EntityTypeShape EntityType="PlanetWroxModel.Genre" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="PlanetWroxModel.PhotoAlbum" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="PlanetWroxModel.Picture" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlanetWroxModel.PhotoAlbum" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlanetWroxModel.Picture" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="PlanetWroxModel.Review" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="PlanetWroxModel.FK_Review_Genre" ManuallyRouted="false" />
         <AssociationConnector Association="PlanetWroxModel.int" ManuallyRouted="false" />
