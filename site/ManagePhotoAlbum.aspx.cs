@@ -16,7 +16,8 @@ public partial class ManagePhotoAlbum : System.Web.UI.Page
     protected void EntityDataSource1_Inserting(object sender, EntityDataSourceChangingEventArgs e)
     {
         int photoAlbumId = Convert.ToInt32(Request.QueryString.Get("PhotoAlbumId"));
-        Picture myPicture = (Picture)e.Entity;
+        var myPicture = (PlanetWroxModel.Picture)e.Entity;
+        //Picture myPicture = (Picture)e.Entity;
         myPicture.PhotoAlbumId = photoAlbumId;
     }
 }

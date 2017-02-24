@@ -20,7 +20,7 @@ using System.Xml.Serialization;
 #region EDM Relationship Metadata
 
 [assembly: EdmRelationshipAttribute("PlanetWroxModel", "FK_Review_Genre", "Genre", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PlanetWroxModel.Genre), "Review", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PlanetWroxModel.Review), true)]
-[assembly: EdmRelationshipAttribute("PlanetWroxModel", "int", "PhotoAlbum", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PlanetWroxModel.PhotoAlbum), "Picture", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PlanetWroxModel.Picture), true)]
+[assembly: EdmRelationshipAttribute("PlanetWroxModel", "FK_Picture_PhotoAlbum", "PhotoAlbum", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PlanetWroxModel.PhotoAlbum), "Picture", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PlanetWroxModel.Picture), true)]
 
 #endregion
 
@@ -91,18 +91,34 @@ namespace PlanetWroxModel
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<PhotoAlbum> PhotoAlbum
+        public ObjectSet<Review> Reviews
         {
             get
             {
-                if ((_PhotoAlbum == null))
+                if ((_Reviews == null))
                 {
-                    _PhotoAlbum = base.CreateObjectSet<PhotoAlbum>("PhotoAlbum");
+                    _Reviews = base.CreateObjectSet<Review>("Reviews");
                 }
-                return _PhotoAlbum;
+                return _Reviews;
             }
         }
-        private ObjectSet<PhotoAlbum> _PhotoAlbum;
+        private ObjectSet<Review> _Reviews;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<PhotoAlbum> PhotoAlbums
+        {
+            get
+            {
+                if ((_PhotoAlbums == null))
+                {
+                    _PhotoAlbums = base.CreateObjectSet<PhotoAlbum>("PhotoAlbums");
+                }
+                return _PhotoAlbums;
+            }
+        }
+        private ObjectSet<PhotoAlbum> _PhotoAlbums;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -119,22 +135,6 @@ namespace PlanetWroxModel
             }
         }
         private ObjectSet<Picture> _Pictures;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Review> Reviews
-        {
-            get
-            {
-                if ((_Reviews == null))
-                {
-                    _Reviews = base.CreateObjectSet<Review>("Reviews");
-                }
-                return _Reviews;
-            }
-        }
-        private ObjectSet<Review> _Reviews;
 
         #endregion
 
@@ -149,11 +149,19 @@ namespace PlanetWroxModel
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the PhotoAlbum EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Reviews EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToPhotoAlbum(PhotoAlbum photoAlbum)
+        public void AddToReviews(Review review)
         {
-            base.AddObject("PhotoAlbum", photoAlbum);
+            base.AddObject("Reviews", review);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the PhotoAlbums EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToPhotoAlbums(PhotoAlbum photoAlbum)
+        {
+            base.AddObject("PhotoAlbums", photoAlbum);
         }
     
         /// <summary>
@@ -162,14 +170,6 @@ namespace PlanetWroxModel
         public void AddToPictures(Picture picture)
         {
             base.AddObject("Pictures", picture);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Reviews EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToReviews(Review review)
-        {
-            base.AddObject("Reviews", review);
         }
 
         #endregion
@@ -404,18 +404,18 @@ namespace PlanetWroxModel
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PlanetWroxModel", "int", "Picture")]
+        [EdmRelationshipNavigationPropertyAttribute("PlanetWroxModel", "FK_Picture_PhotoAlbum", "Picture")]
         public EntityCollection<Picture> Pictures
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Picture>("PlanetWroxModel.int", "Picture");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Picture>("PlanetWroxModel.FK_Picture_PhotoAlbum", "Picture");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Picture>("PlanetWroxModel.int", "Picture", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Picture>("PlanetWroxModel.FK_Picture_PhotoAlbum", "Picture", value);
                 }
             }
         }
@@ -591,16 +591,16 @@ namespace PlanetWroxModel
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("PlanetWroxModel", "int", "PhotoAlbum")]
+        [EdmRelationshipNavigationPropertyAttribute("PlanetWroxModel", "FK_Picture_PhotoAlbum", "PhotoAlbum")]
         public PhotoAlbum PhotoAlbum
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PhotoAlbum>("PlanetWroxModel.int", "PhotoAlbum").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PhotoAlbum>("PlanetWroxModel.FK_Picture_PhotoAlbum", "PhotoAlbum").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PhotoAlbum>("PlanetWroxModel.int", "PhotoAlbum").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PhotoAlbum>("PlanetWroxModel.FK_Picture_PhotoAlbum", "PhotoAlbum").Value = value;
             }
         }
         /// <summary>
@@ -612,13 +612,13 @@ namespace PlanetWroxModel
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PhotoAlbum>("PlanetWroxModel.int", "PhotoAlbum");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PhotoAlbum>("PlanetWroxModel.FK_Picture_PhotoAlbum", "PhotoAlbum");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PhotoAlbum>("PlanetWroxModel.int", "PhotoAlbum", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PhotoAlbum>("PlanetWroxModel.FK_Picture_PhotoAlbum", "PhotoAlbum", value);
                 }
             }
         }
