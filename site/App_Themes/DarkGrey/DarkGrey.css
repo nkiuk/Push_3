@@ -194,3 +194,12 @@ img
     text-align: center;
 }
 
+    /*
+    overrules the width for the picture list to 400 pixels, so only two columns of pictures are shown in this theme.
+    user in ManageItem.aspx
+*/
+    .ItemContainer
+    {
+        width:400px;
+    }
+
