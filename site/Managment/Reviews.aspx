@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cpMainContent" Runat="Server">
+    <!--Bound List of Genre to Drop Down list -->
     <asp:DropDownList 
         ID="DropDownList1" 
         runat="server" 
@@ -13,6 +14,8 @@
         DataValueField="Id">
         <asp:ListItem Value="">Make a selection</asp:ListItem>
     </asp:DropDownList>
+
+    <!--Get list of Genre -->
     <asp:SqlDataSource 
         ID="SqlDataSource1" 
         runat="server" 
@@ -47,6 +50,7 @@
         runat="server" 
         ConnectionString="<%$ ConnectionStrings:PlanetWroxConnectionString1 %>" 
         SelectCommand="SELECT [Id],[Title],[Authorized],[CreateDateTime] FROM [Review] WHERE ([GenreId] = @GenreId)">
+        <%--Triggered From Genare DropDownList1 Post Back--%>
         <SelectParameters>
             <asp:ControlParameter ControlID="DropDownList1" Name="GenreId" PropertyName="SelectedValue" Type="Int32" />
         </SelectParameters>
