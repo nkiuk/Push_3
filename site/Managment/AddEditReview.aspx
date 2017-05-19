@@ -7,14 +7,16 @@
         <Fields>
             <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
             <asp:TemplateField HeaderText="Title" SortExpression="Title">
-                <EditItemTemplate>
+                <EditItemTemplate> <!--Edit Title Controle -->
                     <asp:TextBox ID="TitleTextBox" runat="server" Text='<%# Bind("Title") %>'></asp:TextBox>
+                    <!--Edit Title Validator -->
                     <asp:RequiredFieldValidator 
                         ID="ReqVal1" runat="server" ErrorMessage="Enter Title" ControlToValidate="TitleTextBox">
                     </asp:RequiredFieldValidator>
                 </EditItemTemplate>
-                <InsertItemTemplate>
+                <InsertItemTemplate> <!--Insert Title Controle -->
                     <asp:TextBox ID="TitleTextBox" runat="server" Text='<%# Bind("Title") %>'></asp:TextBox>
+                    <!--Insert Title Validator -->
                     <asp:RequiredFieldValidator 
                         ID="ReqVal2" runat="server" ErrorMessage="Enter Title" ControlToValidate="TitleTextBox">
                     </asp:RequiredFieldValidator>
@@ -24,14 +26,16 @@
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Summary" SortExpression="Summary">
-                <EditItemTemplate>
+                <EditItemTemplate> <!--Edit Summarry Control -->
                     <asp:TextBox ID="SummaryTextBox" TextMode="MultiLine" Width="500" Height="100" runat="server" Text='<%# Bind("Summary") %>'></asp:TextBox>
+                    <!-- Edit Summary Validator -->
                     <asp:RequiredFieldValidator 
                         ID="ReqVal3" runat="server" ErrorMessage="Enter Summary" ControlToValidate="SummaryTextBox">
                     </asp:RequiredFieldValidator>
                 </EditItemTemplate>
-                <InsertItemTemplate>
+                <InsertItemTemplate> <!--Insert Summarry Control -->
                     <asp:TextBox ID="SummaryTextBox" TextMode="MultiLine" Width="500" Height="100" runat="server" Text='<%# Bind("Summary") %>'></asp:TextBox>
+                      <!-- Insert Summary Validator -->
                     <asp:RequiredFieldValidator 
                         ID="ReqVal4" runat="server" ErrorMessage="Enter Summary" ControlToValidate="SummaryTextBox">
                     </asp:RequiredFieldValidator>
